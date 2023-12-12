@@ -1,8 +1,9 @@
-import React from 'react'
 
 const Crear = () => {
   return (
-    <div>Crear</div>
+    <div>
+      Crear articulos
+    </div>
   )
 }
 

@@ -4,21 +4,26 @@ const Articulos = () => {
   const [articulos, setArticulos] = useState([]);
 
   useEffect(() => {
+    conseguirArticulos()
   }, []);
 
 const conseguirArticulos = async() => {
   const url= "http://localhost:3900/api/articulos"
   let peticion= await fetch(url, {
-    method:'GET'
+    method:"GET"
   })
   let datos = await peticion.json();
-  if(datos.status === 'success'){
+   if(datos.status === "success"){
     setArticulos(datos.articulos)
-  }
+  } 
+  console.log(datos);
 }
   return (
     <>
-      {articulos.map((articulo => {
+   
+      {
+      
+      articulos.map((articulo => {
         return (
           <article key={articulo._id} className="articulo-item">
           <div className="mascara">
