@@ -12,7 +12,7 @@ const Articulos = () => {
   }, []);
 
   const conseguirArticulos = async () => {
-    const { datos, cargando } = await Peticion(Global.url + "articulos", "GET");
+    const { datos, cargando } = await Peticion(Global.url+"articulos", "GET");
     /*   let peticion= await fetch(url, {
     method:"GET"
   })
