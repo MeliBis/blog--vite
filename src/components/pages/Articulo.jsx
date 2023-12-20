@@ -1,21 +1,47 @@
-import React from 'react'
+import { useState, useEffect } from "react";
+import { Global } from "../../helpers/Global";
+import { Peticion } from "../../helpers/Peticion";
+import Listado from "./Listado";
+import { useParams } from "react-router-dom";
 
 const Articulo = () => {
-  return (
-    <>
-    {/*   <article key={articulo._id} className="articulo-item">
-            <div className="mascara">
-              <img src="https://cdn.pixabay.com/photo/2017/02/14/15/28/walt-disney-world-2066168_1280.jpg" width={200} alt="" />
-            </div>
-            <div className="datos">
-              <h3 className="title">{articulo.titulo}</h3>
-              <p className="description">{articulo.contenido}</p>
-              <button className="edit">Editar</button>
-              <button className="delete">Borrar</button>
-            </div>
-          </article> */}
-    </>
-  )
-}
+  const [articulo, setArticulo] = useState({});
+  const [cargando, setCargando] = useState(true);
+  const params=useParams()
+  
+  useEffect(() => {
+    conseguirArticulo();
+  }, []);
 
-export default Articulo
+  const conseguirArticulo = async () => {
+    const { datos, cargando } = await Peticion(Global.url+"articulo/" + params.id, "GET");
+
+    if (datos.status === "success") {
+      setArticulo(datos.articulo);
+    }
+    
+    setCargando(false);
+  };
+  return (
+    <div className="jumbo">
+      {cargando ? "Cargando ..." : 
+        
+          (
+            <>
+              <div className="mascara">
+                {articulo.imagen != "default.png" && <img src={Global.url + "imagen/"+articulo.imagen} />}
+                {articulo.imagen == "default.png" && <img src="https://cdn.pixabay.com/photo/2023/10/20/14/20/ai-generated-8329581_1280.jpg" />}
+              </div>
+              <h1>{articulo.titulo}</h1>
+              <span>{articulo.fecha}</span>
+              <p>{articulo.contenido}</p>
+            </>
+          )
+       
+      }
+    
+    </div>
+  );
+};
+
+export default Articulo;

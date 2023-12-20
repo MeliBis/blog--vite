@@ -20,7 +20,8 @@ body{
       "footer footer footer footer"
   ;
   grid-template-rows: 100px 70px auto 70px;
-}
+/*   grid-template-columns: 1fr 1fr 1fr 25%;
+ */}
 
 /*ESTILOS CABECERA*/
 
@@ -35,14 +36,23 @@ body{
 }
 
 .logo{
-  background: linear-gradient(90deg, #da7294 10%, #f5bbcf 100%);
-  width: 40px;
+ /*  background: linear-gradient(90deg, #da7294 10%, #f5bbcf 100%); */
+/*   width: 40px;
   height: 40px;
   border-radius: 300px;
-  margin-top: 30px;
+  margin-top: 30px; */
 }
-
 .play{
+  width: 50px;
+}
+.play img{
+  width: 50px;
+  margin-top: 15px;
+}
+h1{
+  color: #444;
+}
+/* .play{
   width: 0;
   height: 0;
   margin-top: 15px;
@@ -50,7 +60,7 @@ body{
   border-left: 12px solid white;
   border-top: 6px solid transparent;
   border-bottom: 6px solid transparent;
-}
+} */
 
 .header h1{
   margin-left: 15px;
@@ -125,8 +135,20 @@ body{
 .articulo-item .mascara img{
   width: 100%;
 }
+.form-group .mascara{
+  width: 150px;
+  margin: 5px;
+}
+
 .articulo-item h3{
   font-size: 30px;
+}
+.articulo-item h3 a{
+  text-decoration: none;
+  color: #444;
+}
+.articulo-item h3 a:hover{
+  color: #da7294;
 }
 .jumbo{
   width: 85%;
@@ -146,6 +168,12 @@ body{
   display: block;
   margin-bottom: 40px;
 }
+.jumbo .mascara{
+  width: 50%;
+  overflow: hidden;
+  height: 150px;
+}
+.edit,
 .button,
 button,
 input[type="submit"],
